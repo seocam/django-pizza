@@ -6,8 +6,5 @@ from .models import Pizza
 
 def menu(request):
     pizzas = Pizza.objects.all()
-    result = ''
-    for pizza in pizzas:
-        result += pizza.name
-        result += '<br>'
-    return HttpResponse(result)
+    context = {'pizzas': pizzas}
+    return render(request, 'pizza/menu.html', context)
