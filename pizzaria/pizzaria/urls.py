@@ -18,6 +18,9 @@ from django.conf import settings
 from django.conf.urls import include, url, static
 from django.contrib import admin
 
+from pizza.views import menu
+
 urlpatterns = [
+    url(r'^menu$', menu),
     url(r'^admin/', include(admin.site.urls)),
 ] + static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
